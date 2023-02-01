@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.*
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.TextView
@@ -15,13 +18,10 @@ import com.example.demo.views.base.BaseFragment
 import com.example.demo.views.interfaces.DashBoardListener
 import com.example.demo.views.models.Articles
 import com.example.demo.views.models.Root
-import com.example.demo.views.utils.*
+import com.example.demo.views.utils.ItemDecorator
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_dashboard.*
-import kotlinx.android.synthetic.main.fragment_details.view.*
-import kotlinx.android.synthetic.main.item_history_list.*
 import org.koin.android.ext.android.get
-import java.util.*
 
 
 class DashboardFragment : BaseFragment(R.layout.fragment_dashboard), DashBoardListener {
@@ -76,18 +76,18 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard), DashBoardLi
         dashBoardAdapter.listener = this
 
         viewModel.getNewsFeed()
-        viewModel.newsDataFeed.observe(viewLifecycleOwner,{root ->
+        viewModel.newsDataFeed.observe(viewLifecycleOwner) { root ->
             root.articles?.let { it1 -> viewModel.getViewListFromNewsFeed(it1) }
             rootLocal = root
-            editor.putString("root",Gson().toJson(root,Root::class.java)).commit()
+            editor.putString("root", Gson().toJson(root, Root::class.java)).commit()
 
-            viewModel.getSavedNews().observe(viewLifecycleOwner, {articleBookmarked ->
+            viewModel.getSavedNews().observe(viewLifecycleOwner) { articleBookmarked ->
                 finalAricleList.clear()
-                rootLocal = Gson().fromJson(pref.getString("root",""),Root::class.java)
+                rootLocal = Gson().fromJson(pref.getString("root", ""), Root::class.java)
                 articlesBookmarked1 = articleBookmarked as MutableList<Articles>
-                rootLocal?.articles?.forEach { it->
-                    articleBookmarked.forEach { it1->
-                        if(it.title == it1.title){
+                rootLocal?.articles?.forEach { it ->
+                    articleBookmarked.forEach { it1 ->
+                        if (it.title == it1.title) {
                             it.isBookmarked = true
                             return@forEach
                         }
@@ -95,25 +95,13 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard), DashBoardLi
                     finalAricleList.add(it)
                 }
                 finalAricleList.let { viewModel.getViewListFromNewsFeed(it) }
-            })
-        })
+            }
+        }
 
-        viewModel.newsLists.observe(viewLifecycleOwner, {article ->
+        viewModel.newsLists.observe(viewLifecycleOwner) { article ->
             dashBoardAdapter.data = article
             dashBoardAdapter.notifyDataSetChanged()
-        })
-
-        //temporary
-//        val i = activity?.resources?.openRawResource(R.raw.text)
-//        val scanner = Scanner(i)
-//        val builder = StringBuilder()
-//        while (scanner.hasNextLine()) {
-//            builder.append(scanner.nextLine())
-//        }
-//        val gson = Gson()
-//        root = gson.fromJson(builder.toString(), Root::class.java)
-
-
+        }
 
         et_search.setOnEditorActionListener(object: TextView.OnEditorActionListener{
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
@@ -126,19 +114,24 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard), DashBoardLi
             }
         })
 
-        viewModel.getHistory().observe(viewLifecycleOwner,{
+        viewModel.getHistory().observe(viewLifecycleOwner) {
             val temp = mutableListOf<String>()
-            it.forEach{value ->
+            it.forEach { value ->
                 temp.add(value.value)
             }
-             historyAdapter = ArrayAdapter<String>(requireContext(),R.layout.item_history_list,R.id.tv_autocomplete, temp.toTypedArray())
-             et_search.setAdapter(historyAdapter)
+            historyAdapter = ArrayAdapter<String>(
+                requireContext(),
+                R.layout.item_history_list,
+                R.id.tv_autocomplete,
+                temp.toTypedArray()
+            )
+            et_search.setAdapter(historyAdapter)
             historyAdapter.setNotifyOnChange(true)
             et_search.setOnTouchListener { v, event ->
                 et_search.showDropDown()
                 false
             }
-        })
+        }
 
 
         iv_bookmark.setOnClickListener {

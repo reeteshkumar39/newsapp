@@ -2,7 +2,6 @@ package com.example.demo.views.view.fragments.dashboard
 
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.demo.views.base.BaseViewModel
@@ -13,7 +12,6 @@ import com.example.demo.views.repositories.NewsFeedRepo
 import com.example.demo.views.utils.default
 import com.example.demo.views.utils.hideKeyboard
 import com.example.demo.views.utils.showKeyBoard
-import com.example.demo.views.view.fragments.dashboard.data.ListItemBottomPager
 import com.example.demo.views.view.fragments.dashboard.data.ListItemMainNews
 import com.example.demo.views.view.fragments.dashboard.data.ListItemPopularNews
 import com.example.demo.views.view.fragments.dashboard.data.ListItemTitle

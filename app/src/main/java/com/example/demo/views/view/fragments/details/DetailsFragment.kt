@@ -47,10 +47,10 @@ class DetailsFragment : Fragment(), DashBoardListener {
         super.onViewCreated(view, savedInstanceState)
         val viewModel = get<DetailsViewModel>()
         viewModel.getViewListFromNewsFeed(args.root, args.articles)
-        viewModel.newsLists.observe(viewLifecycleOwner, {
+        viewModel.newsLists.observe(viewLifecycleOwner) {
             adapter.data = it
             adapter.notifyDataSetChanged()
-        })
+        }
         iv_back.setOnClickListener {
             activityListener.goBack()
         }

@@ -21,8 +21,5 @@ data class ListItemTitle(
     val title: String?
 ) : ListItems
 
-data class ListItemBottomPager(
-    val title: String?
-) : ListItems
 
 
