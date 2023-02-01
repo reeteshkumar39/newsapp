@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bookmark_news">Bookmark News</string>
+    <string name="test_text">Since the Pune police’s crackdown on Maoist organizations and naxal supporters, a lot is being discussed about the action taken against Naxalites during the UPA regime.
+
+Today, Chidambaram and other Congress leaders may stand in support of Urban Naxals. However, as country’s Union Home Minister, P. Chidambaram was vocal about Maoists getting media and intellectual support during the UPA rule. The Congress-led government at the center and state of Maharashtra had put several outfits under observation. Some of them were alleged to be frontal organizations, while there were others that were found to be linked with Naxalites.
+
+Believe it or not, workers of late Dr. Narendra Dabholkar’s Maharashtra Andhashraddha Nirmoolan Samiti (MANS) which works against those spreading superstition and witchcraft, also had links to several Naxalites. A lot is already being discussed about financial. irregularities surrounding Maharashtra Andhashraddha Nirmoolan Samiti (MANS). But, little is said about its naxal links.
+
+According to the Times of India’s report published in December 2010, late Dr. Dabholkar had himself agreed once during his interaction with journalists that the arrested people with naxal links were indeed members of his organization.
+
+As per a recently published report by Dabang Dunia’s Mumbai Edition, Maharashtra Andhashraddha Nirmoolan Samiti’s working president for Gondia, Naresh Babulal Bansode, and Dhanendra were planning to trigger a significant incident to create law and order problem at Deeksha Bhoomi. But, police managed to catch them on time before they could execute the plan. In the same letter, the home department also certified that MANS’s Dayaram Madavi and Ravji Tawlavi were linked with Maoists."
+</string>
+    <string name="search">Search</string>
+</resources>

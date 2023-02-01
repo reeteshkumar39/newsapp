@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="details"
+            type="com.example.demo.views.models.Articles" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:paddingBottom="@dimen/dp_23">
+
+        <TextView
+            android:text="@{details.title}"
+            android:id="@+id/tv_heading"
+            android:lineSpacingMultiplier="1.33"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:textColor="@color/black"
+            tools:text="In 2011, were Maharashtra Andhashraddha Nirmoolan Samiti workers really arrested for Naxal links?"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_18"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@{details.source.name}"
+            android:id="@+id/tv_source"
+            android:textColor="@color/clr_575757"
+            android:textSize="@dimen/sp_12"
+            android:background="@drawable/pill_shape"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="@dimen/dp_16"
+            app:layout_constraintTop_toBottomOf="@+id/tv_heading"
+            tools:text="CNN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12" />
+
+
+        <ImageView
+            tools:imageUrl="@{details.urlToImage}"
+            android:id="@+id/iv_image"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/test_image"
+            app:layout_constraintTop_toBottomOf="@+id/tv_source"
+            app:layout_constraintDimensionRatio="3.2:2.3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:text="@{details.content}"
+            android:lineSpacingMultiplier="1.54"
+            android:textSize="@dimen/sp_14"
+            android:id="@+id/tv_desc"
+            android:layout_marginTop="@dimen/dp_32"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            app:layout_constraintTop_toBottomOf="@+id/iv_image"
+            tools:text="@string/test_text"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

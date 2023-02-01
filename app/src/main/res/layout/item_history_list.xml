@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:paddingHorizontal="@dimen/dp_24">
+
+        <ImageView
+            android:id="@+id/iv_history"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_history"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"/>
+
+        <TextView
+            android:id="@+id/tv_autocomplete"
+            android:layout_marginStart="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Commitement towards business continuity a little help from tomorrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_history"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

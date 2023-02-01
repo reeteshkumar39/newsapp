@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.demo.views.view.fragments.bookmark.BookmarksViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/root_layout"
+        tools:context=".views.view.fragments.bookmark.BookmarkFragment">
+
+       <ImageView
+           android:id="@+id/iv_back"
+           android:layout_marginStart="@dimen/dp_16"
+           android:src="@drawable/ic_back"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toTopOf="@+id/view"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/dp_16" />
+
+        <TextView
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintStart_toEndOf="@+id/iv_back"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:text="@string/bookmark_news"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_marginEnd="@dimen/dp_16"
+            android:src="@drawable/ic_search"
+            android:id="@+id/iv_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16" />
+
+        <View
+            android:id="@+id/view"
+            android:background="@color/color_EEEEEE"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/rv_bookmark"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/tv_no_bookmarks"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="italic"
+            android:text="No Bookmarks Found"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

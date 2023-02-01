@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#181819"
+        android:id="@+id/bottom_pager"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="116dp">
+
+        <ImageView
+            android:id="@+id/iv_logo1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/dp_24"
+            android:src="@drawable/ic_logo1"
+            android:layout_width="103dp"
+            android:layout_height="33dp"/>
+
+        <ImageView
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_24"
+            android:id="@+id/iv_fb"
+            app:layout_constraintEnd_toStartOf="@+id/iv_tw"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_fb"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginRight="@dimen/dp_16" />
+
+        <ImageView
+            android:id="@+id/iv_tw"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_tw"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginRight="@dimen/dp_16" />
+
+        <TextView
+            android:layout_marginStart="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_16"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo1"
+            android:textColor="#5D5D5E"
+            android:text="Terms of Use    Privacy Policy   Trademarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
